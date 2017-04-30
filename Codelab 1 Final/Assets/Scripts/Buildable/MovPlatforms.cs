@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour {
+public class MovPlatforms : Buildables {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+	public override void setup()
+	{
+		Debug.Log ("Player " + owner + " made a Moving Platform!");
+		if (owner == 2) 
+		{
+			GetComponent<MovingPlatform> ().vertical = true;
+
+		}
 	}
 }
