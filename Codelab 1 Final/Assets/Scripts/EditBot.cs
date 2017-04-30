@@ -9,18 +9,29 @@ public class EditBot : MonoBehaviour {
 	public GameObject [] buildables = new GameObject[6];  
 	public int buildPower = 100;
 	public int buildNumber; 
+	public List<GameObject> visibleTargets = new List<GameObject>();
 	public Buildables b;
+	public GameObject otherPlayer;
 	Rigidbody2D rb;
 
 	// Use this for initialization
 	void Start () {
 
 		rb = GetComponent<Rigidbody2D> ();
+		if (playerNum == 1) 
+		{
+			otherPlayer = GameObject.Find ("GuyBot");
+		}
+		if (playerNum == 2) 
+		{
+			otherPlayer = GameObject.Find ("GalBot");
+		}
 		
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
 
 		move ();
 		edit ();
@@ -67,6 +78,26 @@ public class EditBot : MonoBehaviour {
 			}
 		} 
 
+		if (Input.GetButtonDown ("Attack_P" + playerNum)) 
+		{
+			removeObjects ();
+		}
+
+	}
+
+	void OnTriggerEnter2D (Collider2D touched)
+	{
+		if (touched.GetComponent<Buildables>() != null) 
+		{
+			Debug.Log ("Touched " + touched.name);
+			visibleTargets.Add (touched.gameObject);
+		}
+	}
+
+	void OnTriggerExit2D (Collider2D touched)
+	{
+		if (touched.GetComponent<Buildables> () != null)
+			visibleTargets.Remove (touched.gameObject);
 	}
 
 	void createObject (int num)
@@ -77,6 +108,27 @@ public class EditBot : MonoBehaviour {
 		thisB.setup ();
 		thisB.colorChange ();
 		buildPower = buildPower - b.cost; 
+	}
+
+	void removeObjects ()
+	{
+		for (int i = 0; i < visibleTargets.Count; i++) 
+		{ 
+			Buildables b = visibleTargets [i].GetComponent<Buildables> ();
+			if (b.owner == playerNum) 
+			{
+				buildPower = buildPower + b.cost;
+			}
+			if (b.owner != playerNum) 
+			{
+				otherPlayer.GetComponent<EditBot> ().buildPower = otherPlayer.GetComponent<EditBot> ().buildPower + b.cost;
+			}
+				Destroy (visibleTargets [i].gameObject);
+			
+		}
+
+		visibleTargets.Clear ();
+
 	}
 
 
