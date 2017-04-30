@@ -6,6 +6,9 @@ public class EditBot : MonoBehaviour {
 
 	public float playerNum;
 	public float moveSpeed; 
+	public GameObject [] buildables = new GameObject[6];  
+	public int buildPower = 100;
+	public int buildNumber; 
 	Rigidbody2D rb;
 
 	// Use this for initialization
@@ -19,6 +22,7 @@ public class EditBot : MonoBehaviour {
 	void Update () {
 
 		move ();
+		edit ();
 		
 	}
 
@@ -27,6 +31,35 @@ public class EditBot : MonoBehaviour {
 		Vector2 direction = new Vector2 (Input.GetAxis ("LeftStick_P" + playerNum), Input.GetAxis ("LeftStickY_P" + playerNum));
 
 		rb.velocity = direction * moveSpeed;
+
+	}
+
+	void edit () {
+
+		if (Input.GetButtonDown ("ShiftUp_P" + playerNum)) 
+		{
+			buildNumber++;
+		}
+
+		if (Input.GetButtonDown ("ShiftDown_P" + playerNum)) 
+		{
+			buildNumber--;
+		}
+
+		if (buildNumber > (buildables.Length -1)) 
+		{
+			buildNumber = 0;
+		}
+
+		if (buildNumber < 0) 
+		{
+			buildNumber = buildables.Length -1;
+		}
+
+		if (Input.GetButtonDown ("Jump_P" + playerNum)) 
+		{
+			Instantiate (buildables [buildNumber], transform.position, Quaternion.identity); 
+		} 
 
 	}
 
