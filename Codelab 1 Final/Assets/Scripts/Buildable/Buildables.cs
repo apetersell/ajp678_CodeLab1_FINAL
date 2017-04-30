@@ -12,6 +12,25 @@ public abstract class Buildables : MonoBehaviour {
 	public int cost; 
 	public int owner;
 
+
+	public void colorChange () 
+	{
+
+		if (owner == 1) 
+		{
+			GameObject player = GameObject.Find ("GalBot");
+			SpriteRenderer sr = player.GetComponent<SpriteRenderer> ();
+			GetComponent<SpriteRenderer> ().color = sr.color;
+		}
+		if (owner == 2) 
+		{
+			GameObject player = GameObject.Find ("GuyBot");
+			SpriteRenderer sr = player.GetComponent<SpriteRenderer> ();
+			GetComponent<SpriteRenderer> ().color = sr.color;
+		}
+
+	}
+
 	public abstract void setup ();
 
 }

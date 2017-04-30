@@ -75,6 +75,7 @@ public class EditBot : MonoBehaviour {
 		Buildables thisB = placedObject.GetComponent<Buildables> ();
 		thisB.owner = playerNum;  
 		thisB.setup ();
+		thisB.colorChange ();
 		buildPower = buildPower - b.cost; 
 	}
 
