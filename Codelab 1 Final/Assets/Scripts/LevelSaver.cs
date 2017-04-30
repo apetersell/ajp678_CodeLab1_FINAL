@@ -4,7 +4,9 @@ using UnityEngine;
 using SimpleJSON;
 
 public class LevelSaver : MonoBehaviour {
-	
+
+	public LevelData[] placedObjects;
+
 	// Use this for initialization
 	void Start () { 
 		
@@ -20,17 +22,29 @@ public class LevelSaver : MonoBehaviour {
 
 	}
 
-	public static void save ()
+	public void save ()
 	{
+		Debug.Log (":)");
 		Buildables[] levelStuff = FindObjectsOfType (typeof (Buildables)) as Buildables[];
+		placedObjects = new LevelData[levelStuff.Length];
 		for (int i = 0; i < levelStuff.Length; i++) {
 			int own = levelStuff [i].owner;
 			string typ = levelStuff [i].itemName;
 			Vector3 pos = levelStuff [i].gameObject.transform.position; 
-
-			LevelData ld = new LevelData (pos, own, typ);
-			Debug.Log (ld);
-			ld.Save ("LevelData.txt");
+			placedObjects [i] = new LevelData (pos, own, typ);
 		}
+		Debug.Log (placedObjects [0].type);
+		savetoJSONArray ();
+	}
+
+	void savetoJSONArray ()
+	{
+		JSONArray jArray = new JSONArray (); 
+		for (int i = 0; i < placedObjects.Length; i++) 
+		{ 
+			jArray.Add (placedObjects [i].ToJSON());
+		}
+
+		UtilScript.WriteJSONtoFile(Application.dataPath, "LevelData.txt", jArray); 
 	}
 }
