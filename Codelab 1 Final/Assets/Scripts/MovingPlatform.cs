@@ -6,16 +6,18 @@ public class MovingPlatform : MonoBehaviour {
 
 	public float moveSpeed;
 	private float moveForce; 
-	public float negativeLimit;
-	public float positiveLimit;
+	public float limit;
 	public bool vertical;
 	public bool movingPlus;
+	public Vector3 startPos;
 	Rigidbody2D rb;
 
 	// Use this for initialization
 	void Start () {
 
 		rb = GetComponent<Rigidbody2D> ();
+		startPos = transform.position; 
+
 
 	}
 	
@@ -29,19 +31,19 @@ public class MovingPlatform : MonoBehaviour {
 		}
 
 		if (vertical == false) {
-			if (transform.localPosition.x >= positiveLimit) {
+			if (transform.localPosition.x >= startPos.x + limit) {
 				movingPlus = false;
 			}
 
-			if (transform.localPosition.x <= negativeLimit) {
+			if (transform.localPosition.x <= startPos.x - limit) {
 				movingPlus = true;
 			}
 		} else {
-			if (transform.localPosition.y >= positiveLimit) {
+			if (transform.localPosition.y >= startPos.y + limit) {
 				movingPlus = false;
 			}
 
-			if (transform.localPosition.y <= negativeLimit) {
+			if (transform.localPosition.y <= startPos.y - limit) {
 				movingPlus = true;
 			}
 		}
