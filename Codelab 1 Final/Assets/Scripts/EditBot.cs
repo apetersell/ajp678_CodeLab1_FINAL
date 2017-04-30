@@ -13,6 +13,8 @@ public class EditBot : MonoBehaviour {
 	public Buildables b;
 	public GameObject otherPlayer;
 	Rigidbody2D rb;
+	public string selectedItemName;
+	public string selectedItemCost;
 
 	// Use this for initialization
 	void Start () {
@@ -37,6 +39,8 @@ public class EditBot : MonoBehaviour {
 		edit ();
 
 		b = buildables [buildNumber].GetComponent<Buildables> (); 
+		selectedItemName = b.itemName;
+		selectedItemCost = b.cost.ToString ();
 		
 	}
 

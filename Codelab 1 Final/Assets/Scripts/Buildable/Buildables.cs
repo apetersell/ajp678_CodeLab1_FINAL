@@ -11,6 +11,7 @@ public abstract class Buildables : MonoBehaviour {
 	}
 	public int cost; 
 	public int owner;
+	public string itemName;
 
 
 	public void colorChange () 
