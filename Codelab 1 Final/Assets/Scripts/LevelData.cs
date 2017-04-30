@@ -47,7 +47,7 @@ public class LevelData : MonoBehaviour {
 	}
 
 	public void Save(string fileName){
-		JSONClass json = ToJSON();
+		JSONNode json = ToJSON();
 		UtilScript.WriteJSONtoFile(Application.dataPath, fileName, json);
 	}
 }

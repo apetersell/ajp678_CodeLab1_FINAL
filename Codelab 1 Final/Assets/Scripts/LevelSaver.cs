@@ -24,12 +24,12 @@ public class LevelSaver : MonoBehaviour {
 	{
 		Buildables[] levelStuff = FindObjectsOfType (typeof (Buildables)) as Buildables[];
 		for (int i = 0; i < levelStuff.Length; i++) {
-			Debug.Log (levelStuff [i]);
 			int own = levelStuff [i].owner;
 			string typ = levelStuff [i].itemName;
 			Vector3 pos = levelStuff [i].gameObject.transform.position; 
 
-			LevelData ld = new LevelData (pos, own, typ); 
+			LevelData ld = new LevelData (pos, own, typ);
+			Debug.Log (ld);
 			ld.Save ("LevelData.txt");
 		}
 	}

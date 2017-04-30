@@ -1,1 +1,1 @@
-{"xpos":"-6.65579", "ypos":"-4.145192", "zpos":"0", "type":"Platform", "owner":"1"}
+{"xpos":"4.596786", "ypos":"-3.639518", "zpos":"0", "type":"Big Shot", "owner":"2"}

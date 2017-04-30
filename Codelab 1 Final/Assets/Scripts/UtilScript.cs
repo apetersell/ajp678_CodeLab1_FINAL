@@ -16,7 +16,7 @@ public class UtilScript : MonoBehaviour {
 	/// <param name="path">Path to file to write</param>
 	/// <param name="fileName">fileName of file to write</param>
 	/// <param name="json">JSONClass to put into file</param>
-	public static void WriteJSONtoFile(string path, string fileName, JSONClass json){
+	public static void WriteJSONtoFile(string path, string fileName, JSONNode json){
 		WriteStringToFile(path, fileName, json.ToString());
 	}
 
