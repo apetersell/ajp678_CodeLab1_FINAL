@@ -15,6 +15,7 @@ public class EditorUISDisplay : MonoBehaviour {
 	Text bpt;
 	Text nt;
 	Text ct;
+	public GameObject[] tempList = new GameObject[0];
 
 	// Use this for initialization
 	void Start () {

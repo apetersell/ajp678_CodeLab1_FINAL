@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class RegPlatforms : Buildables{
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-
 	public override void setup ()
 	{
 		Debug.Log ("Player " + owner + " made a Regular Platform!");
