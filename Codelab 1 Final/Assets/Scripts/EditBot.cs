@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class EditBot : MonoBehaviour {
 
-	public float playerNum;
+	public int playerNum;
 	public float moveSpeed; 
 	public GameObject [] buildables = new GameObject[6];  
 	public int buildPower = 100;
 	public int buildNumber; 
+	public Buildables b;
 	Rigidbody2D rb;
 
 	// Use this for initialization
@@ -23,6 +24,8 @@ public class EditBot : MonoBehaviour {
 
 		move ();
 		edit ();
+
+		b = buildables [buildNumber].GetComponent<Buildables> (); 
 		
 	}
 
@@ -58,10 +61,23 @@ public class EditBot : MonoBehaviour {
 
 		if (Input.GetButtonDown ("Jump_P" + playerNum)) 
 		{
-			Instantiate (buildables [buildNumber], transform.position, Quaternion.identity); 
+			if (b.cost <= buildPower) 
+			{
+				createObject (buildNumber);
+			}
 		} 
 
 	}
+
+	void createObject (int num)
+	{
+		GameObject placedObject = Instantiate (buildables [num], transform.position, Quaternion.identity);
+		Buildables thisB = placedObject.GetComponent<Buildables> ();
+		thisB.owner = playerNum;  
+		thisB.setup ();
+		buildPower = buildPower - b.cost; 
+	}
+
 
 
 }

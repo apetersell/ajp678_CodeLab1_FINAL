@@ -10,12 +10,8 @@ public abstract class Buildables : MonoBehaviour {
 
 	}
 	public int cost; 
+	public int owner;
 
-	void Start () {
-
-		setup ();
-	}
-
-	public abstract void setup (); 
+	public abstract void setup ();
 
 }
