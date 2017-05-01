@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour {
 		//		rps = GetComponent<RPSSystem> ();
 		grounded = true; 
 		tokenSpawner = GameObject.Find ("TokenSpawner"); 
-		ts = tokenSpawner.GetComponent<TokenSpawner> (); 
+//		ts = tokenSpawner.GetComponent<TokenSpawner> (); 
 		//		sui = GetComponent<StackUI> ();
 		anim = GetComponent<Animator> (); 
 
