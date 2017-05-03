@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class EditorTimer : MonoBehaviour {
@@ -22,6 +23,12 @@ public class EditorTimer : MonoBehaviour {
 
 		currentTime = currentTime - Time.deltaTime;
 		t.text = Mathf.RoundToInt (currentTime).ToString();
+
+		if (currentTime <= 0) 
+		{
+			GameObject.Find ("Level Loader").GetComponent<LevelSaver> ().save ();
+			SceneManager.LoadScene ("Fight Scene");
+		}
 		
 	}
 }
