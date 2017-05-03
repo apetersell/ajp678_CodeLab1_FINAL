@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
 
 public class PlayerMovement : MonoBehaviour {
 
@@ -20,7 +20,6 @@ public class PlayerMovement : MonoBehaviour {
 	private bool canJump;
 	public bool canHover;
 
-	public int health = 100;
 	public float shotDirection = 1;
 	public float shotXSpeed;
 	public float shotYSpeed;
@@ -164,19 +163,6 @@ public class PlayerMovement : MonoBehaviour {
 				shotColor,
 				playerNum);
 		}
-
-		if (health <= 0) 
-		{
-			if (playerNum == 1) 
-			{
-				SceneManager.LoadScene ("Player Guy Wins");
-			}
-
-			if (playerNum == 2) 
-			{
-				SceneManager.LoadScene ("Player Gal Wins");
-			}
-		}
 	}
 
 	void OnCollisionEnter2D(Collision2D touched)
@@ -226,7 +212,15 @@ public class PlayerMovement : MonoBehaviour {
 			BladeBeamBehavior bbb = touched.GetComponent<BladeBeamBehavior> ();
 			if (bbb.owner != playerNum) 
 			{
-				health = health - bbb.beamDamage; 
+				if (playerNum == 1) 
+				{
+					ScoreManager.playerGalHealth = ScoreManager.playerGalHealth - bbb.beamDamage;
+				}
+
+				if (playerNum == 2) 
+				{
+					ScoreManager.playerGuyHealth = ScoreManager.playerGuyHealth - bbb.beamDamage;
+				}
 				Destroy (touched.gameObject);
 			}
 		}

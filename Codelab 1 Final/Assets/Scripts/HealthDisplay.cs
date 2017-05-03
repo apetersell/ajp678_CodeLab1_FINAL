@@ -5,21 +5,22 @@ using UnityEngine.UI;
 
 public class HealthDisplay : MonoBehaviour {
 
-	public Text scoreBoard;
-	PlayerMovement pm;
-	Text t;
+	public Text galHealth;
+	public Text guyHealth;
+	Text galT;
+	Text guyT;
 
 	// Use this for initialization
 	void Start () {
-		pm = GetComponent <PlayerMovement> ();
-		t = scoreBoard.GetComponent<Text> ();
+
+		galT = galHealth.GetComponent<Text> ();
+		guyT = guyHealth.GetComponent<Text> ();
 		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
-		t.text = pm.health.ToString (); 
-		
+		galT.text = ScoreManager.playerGalHealth.ToString ();
+		guyT.text = ScoreManager.playerGuyHealth.ToString ();
 	}
 }

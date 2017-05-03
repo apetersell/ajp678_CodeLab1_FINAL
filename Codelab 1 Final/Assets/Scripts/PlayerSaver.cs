@@ -31,9 +31,7 @@ public class PlayerSaver : MonoBehaviour {
 		{
 			int num = players [i].GetComponent<PlayerMovement>().playerNum;
 			Vector3 pos = players [i].gameObject.transform.position; 
-			Debug.Log (pos);
 			playDat [i] = new PlayerData (pos, num);
-			Debug.Log (playDat);
 		}
 
 		saveLevelToJSONArray ();
