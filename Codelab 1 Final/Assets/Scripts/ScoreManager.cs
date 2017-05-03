@@ -8,6 +8,7 @@ public class ScoreManager : MonoBehaviour {
 
 	public static ScoreManager keepIt; 
 	public KeyCode restart;
+	public bool startScreen = true;
 	public bool itsOver = false;
 	public static int playerGalHealth = 100;
 	public static int playerGuyHealth = 100;
@@ -33,10 +34,10 @@ public class ScoreManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (Input.GetKeyDown (KeyCode.Space)) 
+		if (Input.GetKeyDown (KeyCode.Space) && startScreen == true) 
 		{
-			Debug.Log (playerGalHealth);
-			Debug.Log (playerGuyHealth);
+			startScreen = false;
+			SceneManager.LoadScene ("Editor Scene");
 		}
 		if (Input.GetKeyDown (restart) && itsOver == true) 
 		{
@@ -45,7 +46,8 @@ public class ScoreManager : MonoBehaviour {
 			UtilScript.WriteStringToFile (Application.dataPath, "LevelData.txt", "");
 			UtilScript.WriteStringToFile (Application.dataPath, "PlayerData.txt", "");
 			firstScene = true;
-			SceneManager.LoadScene ("Editor Scene"); 
+			startScreen = true;
+			SceneManager.LoadScene ("Start Screen"); 
 		}
 
 		if (playerGalHealth <= 0) 

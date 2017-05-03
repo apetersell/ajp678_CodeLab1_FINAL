@@ -7,15 +7,26 @@ public class BeamPool : MonoBehaviour {
 	public static Queue <GameObject> beamPool = new Queue<GameObject>();
 
 
-	public static GameObject pullFromPool()
+	public static GameObject pullFromPool(string beamColor)
 	{
 		GameObject beam;
+		int howManyBeamsWeNeed;
 
-		if(beamPool.Count > 0)
+		if (beamColor == "Red") 
 		{
-			beam = beamPool.Dequeue(); 
+			howManyBeamsWeNeed = 4;
 		} 
 		else 
+		{
+			howManyBeamsWeNeed = 0;
+		}
+
+
+		if (beamPool.Count > howManyBeamsWeNeed) 
+		{
+			beam = beamPool.Dequeue ();
+		}
+
 		{
 			beam = Instantiate(Resources.Load("Prefabs/BladeBeam")) as GameObject;
 		}
