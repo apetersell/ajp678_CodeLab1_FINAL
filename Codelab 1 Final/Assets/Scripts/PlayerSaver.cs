@@ -26,14 +26,19 @@ public class PlayerSaver : MonoBehaviour {
 
 	public void save ()
 	{
-		Debug.Log ("Saved!");
 		GameObject[] players = GameObject.FindGameObjectsWithTag ("Player"); 
 		playDat = new PlayerData[players.Length];
 		for (int i = 0; i < players.Length; i++) 
 		{
-			int num = players [i].GetComponent<PlayerMovement>().playerNum;
-			Vector3 pos = players [i].gameObject.transform.position; 
-			playDat [i] = new PlayerData (pos, num);
+			if (players[i].gameObject.name == "Player Guy" || players[i].gameObject.name == "Player Gal") {
+				int num = players [i].GetComponent<PlayerMovement> ().playerNum;
+				Vector3 pos = players [i].gameObject.transform.position; 
+				playDat [i] = new PlayerData (pos, num, false);
+			} else {
+				int num = players [i].GetComponent<PosMarker> ().playerNum;
+				Vector3 pos = players [i].gameObject.transform.position; 
+				playDat [i] = new PlayerData (pos, num, true);
+			}
 		}
 
 		saveLevelToJSONArray ();

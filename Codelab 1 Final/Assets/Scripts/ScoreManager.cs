@@ -13,8 +13,6 @@ public class ScoreManager : MonoBehaviour {
 	public static int playerGuyHealth = 100;
 	public int maxHealth = 100;
 	public static bool firstScene = true;
-	GameObject playerGal;
-	GameObject playerGuy;
 
 
 	void Start () {
@@ -27,6 +25,7 @@ public class ScoreManager : MonoBehaviour {
 			{
 				Destroy (gameObject);
 			}
+
 		}
 	}
 		

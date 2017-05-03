@@ -12,7 +12,7 @@ public abstract class Buildables : MonoBehaviour {
 
 	public void colorChange () 
 	{
-		GameObject fightRecognizer = GameObject.Find ("Player Guy");
+		GameObject fightRecognizer = GameObject.Find ("Fight UI");
 		if (fightRecognizer != null) 
 		{
 			if (owner == 1) {

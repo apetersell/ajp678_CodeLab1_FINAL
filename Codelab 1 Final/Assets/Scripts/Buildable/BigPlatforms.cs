@@ -8,7 +8,7 @@ public class BigPlatforms : Buildables{
 
 	public override void setup ()
 	{
-		GameObject fightRecognizer = GameObject.Find ("Player Guy");
+		GameObject fightRecognizer = GameObject.Find ("Fight UI");
 		if (owner == 1) 
 		{
 			if (fightRecognizer != null) {

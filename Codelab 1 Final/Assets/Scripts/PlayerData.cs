@@ -7,8 +7,10 @@ public class PlayerData : MonoBehaviour {
 
 	public int playerNum;
 	public Vector3 playerPos;
+	public bool isPosMarker;
 
 	private const string PLAYER_NUM = "playernum"; 
+	private const string POS_MARKER = "posmarker";
 	private const string POS_X = "xpos"; 
 	private const string POS_Y = "ypos";
 	private const string POS_Z = "zpos"; 
@@ -23,6 +25,7 @@ public class PlayerData : MonoBehaviour {
 			json [POS_Y].AsFloat, 
 			json [POS_Z].AsFloat); 
 		playerNum = json [PLAYER_NUM].AsInt;
+		isPosMarker = json [POS_MARKER].AsBool;
 	}
 
 	public PlayerData(JSONNode json)
@@ -33,11 +36,13 @@ public class PlayerData : MonoBehaviour {
 			json [POS_Y].AsFloat,
 			json [POS_Z].AsFloat); 
 		playerNum = json [PLAYER_NUM].AsInt; 
+		isPosMarker = json [POS_MARKER].AsBool;
 	}
 
-	public PlayerData(Vector3 position, int playNum){
+	public PlayerData(Vector3 position, int playNum, bool posMark){
 		this.playerPos = position; 
 		this.playerNum = playNum; 
+		this.isPosMarker = posMark;
 	}
 
 	public JSONClass ToJSON(){
@@ -47,6 +52,7 @@ public class PlayerData : MonoBehaviour {
 		json[POS_Y].AsFloat = playerPos.y; 
 		json[POS_Z].AsFloat = playerPos.z; 
 		json [PLAYER_NUM].AsInt = playerNum; 
+		json [POS_MARKER].AsBool = isPosMarker;
 
 		return json;
 	}
