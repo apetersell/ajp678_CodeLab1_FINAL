@@ -186,7 +186,6 @@ public class PlayerMovement : MonoBehaviour {
 		{
 			Destroy (gameObject.GetComponent<Weapon> ());
 			gameObject.AddComponent<LongShot> ();
-			Debug.Log ("Got Long Shot!");
 			Destroy (touched.gameObject); 
 //			ts.paperGone = true;
 		}

@@ -27,6 +27,7 @@ public class EditorTimer : MonoBehaviour {
 		if (currentTime <= 0) 
 		{
 			GameObject.Find ("Level Loader").GetComponent<LevelSaver> ().save ();
+			ScoreManager.firstScene = false;
 			SceneManager.LoadScene ("Fight Scene");
 		}
 		

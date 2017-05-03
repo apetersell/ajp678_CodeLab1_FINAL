@@ -12,6 +12,7 @@ public class ScoreManager : MonoBehaviour {
 	public static int playerGalHealth = 100;
 	public static int playerGuyHealth = 100;
 	public int maxHealth = 100;
+	public static bool firstScene = true;
 	GameObject playerGal;
 	GameObject playerGuy;
 
@@ -42,6 +43,9 @@ public class ScoreManager : MonoBehaviour {
 		{
 			
 			itsOver = false;
+			UtilScript.WriteStringToFile (Application.dataPath, "LevelData.txt", "");
+			UtilScript.WriteStringToFile (Application.dataPath, "PlayerData.txt", "");
+			firstScene = true;
 			SceneManager.LoadScene ("Editor Scene"); 
 		}
 

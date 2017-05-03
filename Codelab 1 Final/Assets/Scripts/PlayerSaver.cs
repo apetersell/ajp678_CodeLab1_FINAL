@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using SimpleJSON;
+using UnityEngine.SceneManagement;
 
 public class PlayerSaver : MonoBehaviour {
 
@@ -18,6 +19,7 @@ public class PlayerSaver : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
 			save();
+			SceneManager.LoadScene ("Editor Scene");
 		}
 
 	}

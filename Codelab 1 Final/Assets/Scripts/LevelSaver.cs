@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using SimpleJSON;
+using UnityEngine.SceneManagement;
 
 public class LevelSaver : MonoBehaviour {
 
@@ -34,6 +35,7 @@ public class LevelSaver : MonoBehaviour {
 			string typ = levelStuff [i].itemName;
 			Vector3 pos = levelStuff [i].gameObject.transform.position; 
 			placedObjects [i] = new LevelData (pos, own, typ);
+			SceneManager.LoadScene ("Editor Scene");
 		}
 		
 		saveLevelToJSONArray ();
