@@ -9,6 +9,28 @@ public abstract class Buildables : MonoBehaviour {
 	public int owner;
 	public string itemName;
 
+	void Start ()
+	{
+		if (transform.position.y > 9.3f) 
+		{
+			transform.position = new Vector2 (transform.position.x, 9.3f);
+		}
+
+		if (transform.position.y < -14.8f) 
+		{
+			transform.position = new Vector2 (transform.position.x, -14.8f);
+		}
+
+		if (transform.position.x > 11.8f) 
+		{
+			transform.position = new Vector2 (11.8f, transform.position.y);
+		}
+
+		if(transform.position.x < -11.2f)
+		{
+			transform.position = new Vector2 (-11.2f, transform.position.y); 
+		}
+	}
 
 	public void colorChange () 
 	{

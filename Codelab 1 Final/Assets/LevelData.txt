@@ -1,0 +1,1 @@
+[ {"xpos":"2.524019", "ypos":"-14.8", "zpos":"0", "type":"Big Platform", "owner":"2"} ]

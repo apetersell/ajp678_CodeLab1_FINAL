@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class PlayerMovement : MonoBehaviour {
@@ -222,6 +223,13 @@ public class PlayerMovement : MonoBehaviour {
 				}
 				Destroy (touched.gameObject);
 			}
+		}
+
+		if (touched.gameObject.tag == "Editor Token") 
+		{
+			GameObject.Find ("Level Loader").GetComponent<PlayerSaver> ().save ();
+			ScoreManager.firstScene = false;
+			SceneManager.LoadScene ("Editor Scene");
 		}
 
 	}
