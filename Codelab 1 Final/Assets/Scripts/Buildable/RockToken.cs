@@ -6,6 +6,6 @@ public class RockToken : Buildables {
 
 	public override void setup ()
 	{
-		Debug.Log ("Player " + owner + " made a Big Shot Power Up!");
+//		Debug.Log ("Player " + owner + " made a Big Shot Power Up!");
 	}
 }

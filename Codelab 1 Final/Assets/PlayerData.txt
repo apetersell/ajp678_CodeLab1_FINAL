@@ -1,1 +1,1 @@
-[ {"xpos":"-4.85", "ypos":"-11.95996", "zpos":"0", "playernum":"1"}, {"xpos":"5.48", "ypos":"-11.95995", "zpos":"0", "playernum":"2"} ]
+[ {"xpos":"2.148033", "ypos":"3.420327", "zpos":"0", "playernum":"1"}, {"xpos":"-5.710631", "ypos":"-4.442271", "zpos":"0", "playernum":"2"} ]

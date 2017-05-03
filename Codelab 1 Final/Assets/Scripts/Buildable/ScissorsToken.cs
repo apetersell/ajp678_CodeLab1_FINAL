@@ -6,6 +6,6 @@ public class ScissorsToken : Buildables {
 
 	public override void setup ()
 	{
-		Debug.Log ("Player " + owner + " made a Spread Shot Power Up!");
+
 	}
 }

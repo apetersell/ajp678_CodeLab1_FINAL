@@ -39,7 +39,5 @@ public class BigPlatforms : Buildables{
 		{
 			sr [i].color = psr.color;
 		}
-
-		Debug.Log ("Player " + owner + " made a Big Platform!");
 	}
 }

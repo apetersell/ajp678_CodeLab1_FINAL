@@ -101,7 +101,6 @@ public class EditBot : MonoBehaviour {
 	{
 		if (touched.GetComponent<Buildables>() != null) 
 		{
-			Debug.Log ("Touched " + touched.name);
 			visibleTargets.Add (touched.gameObject);
 		}
 	}

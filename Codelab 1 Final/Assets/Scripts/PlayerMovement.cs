@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour {
-	 
+
 	public int playerNum; 
 	public float moveSpeed;
 	public float airSpeedModifier;
@@ -41,23 +41,15 @@ public class PlayerMovement : MonoBehaviour {
 
 	public GameObject hitbox;
 	Animator anim;
-	//	RPSSystem rps;
-//	TokenSpawner ts;
-//	GameObject tokenSpawner;
 	SpriteRenderer sr; 
 	Rigidbody2D rb; 
-	//	StackUI sui;
-	//
+
 	// Use this for initialization
 	void Start () {
 
 		sr = GetComponent<SpriteRenderer> ();
 		rb = GetComponent<Rigidbody2D> ();
-		//		rps = GetComponent<RPSSystem> ();
 		grounded = true; 
-//		tokenSpawner = GameObject.Find ("TokenSpawner"); 
-//		ts = tokenSpawner.GetComponent<TokenSpawner> (); 
-		//		sui = GetComponent<StackUI> ();
 		anim = GetComponent<Animator> (); 
 
 	}
@@ -68,7 +60,6 @@ public class PlayerMovement : MonoBehaviour {
 		playerJump ();
 		attack ();
 		animationHandler ();
-		//		jumpTimer = jumpValue * Time.deltaTime;
 
 	}
 
