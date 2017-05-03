@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour {
 
 
 
+
 	public bool idleAnim = true;
 	public bool jumpingAnim;
 	public bool fallingAnim;
@@ -41,8 +42,8 @@ public class PlayerMovement : MonoBehaviour {
 	public GameObject hitbox;
 	Animator anim;
 	//	RPSSystem rps;
-	TokenSpawner ts;
-	GameObject tokenSpawner;
+//	TokenSpawner ts;
+//	GameObject tokenSpawner;
 	SpriteRenderer sr; 
 	Rigidbody2D rb; 
 	//	StackUI sui;
@@ -54,7 +55,7 @@ public class PlayerMovement : MonoBehaviour {
 		rb = GetComponent<Rigidbody2D> ();
 		//		rps = GetComponent<RPSSystem> ();
 		grounded = true; 
-		tokenSpawner = GameObject.Find ("TokenSpawner"); 
+//		tokenSpawner = GameObject.Find ("TokenSpawner"); 
 //		ts = tokenSpawner.GetComponent<TokenSpawner> (); 
 		//		sui = GetComponent<StackUI> ();
 		anim = GetComponent<Animator> (); 
@@ -208,8 +209,9 @@ public class PlayerMovement : MonoBehaviour {
 		{
 			Destroy (gameObject.GetComponent<Weapon> ());
 			gameObject.AddComponent<LongShot> ();
+			Debug.Log ("Got Long Shot!");
 			Destroy (touched.gameObject); 
-			ts.paperGone = true;
+//			ts.paperGone = true;
 		}
 
 		if (touched.gameObject.tag == "Rock Token") 
@@ -217,7 +219,7 @@ public class PlayerMovement : MonoBehaviour {
 			Destroy (gameObject.GetComponent<Weapon> ());
 			gameObject.AddComponent<BigShot> ();
 			Destroy (touched.gameObject); 
-			ts.rockGone = true;
+//			ts.rockGone = true;
 		}
 
 		if (touched.gameObject.tag == "Scissors Token") 
@@ -225,7 +227,7 @@ public class PlayerMovement : MonoBehaviour {
 			Destroy (gameObject.GetComponent<Weapon> ());
 			gameObject.AddComponent<SpreadShot> ();
 			Destroy (touched.gameObject); 
-			ts.scissorsGone = true;
+//			ts.scissorsGone = true;
 		}
 
 		if (touched.gameObject.tag == "Beam") 
@@ -239,6 +241,7 @@ public class PlayerMovement : MonoBehaviour {
 		}
 
 	}
+
 
 	void animationHandler ()
 	{

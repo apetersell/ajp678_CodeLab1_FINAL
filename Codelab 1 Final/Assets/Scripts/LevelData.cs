@@ -28,6 +28,17 @@ public class LevelData : MonoBehaviour {
 		owner = json [OWNER].AsInt; 
 	}
 
+	public LevelData(JSONNode json)
+	{
+
+		position = new Vector3 (
+			json [POS_X].AsFloat,
+			json [POS_Y].AsFloat,
+			json [POS_Z].AsFloat);
+		type = json [TYPE];
+		owner = json [OWNER].AsInt;
+	}
+
 	public LevelData(Vector3 position, int owner, string type){
 		this.position = position;
 		this.owner = owner;

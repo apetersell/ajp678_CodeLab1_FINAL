@@ -19,15 +19,23 @@ public class EditBot : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+		GameObject loader = GameObject.Find ("Level Loader");
+		LevelLoader ll = loader.GetComponent<LevelLoader> ();
+
 		rb = GetComponent<Rigidbody2D> ();
 		if (playerNum == 1) 
 		{
 			otherPlayer = GameObject.Find ("GuyBot");
+			buildPower = buildPower - ll.galUsedPower;
 		}
 		if (playerNum == 2) 
 		{
 			otherPlayer = GameObject.Find ("GalBot");
+			buildPower = buildPower - ll.guyUsedPower;
 		}
+
+
+
 		
 	}
 	

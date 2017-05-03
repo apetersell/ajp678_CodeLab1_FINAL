@@ -8,15 +8,29 @@ public class BigPlatforms : Buildables{
 
 	public override void setup ()
 	{
+		GameObject fightRecognizer = GameObject.Find ("Player Guy");
 		if (owner == 1) 
 		{
-			player = GameObject.Find ("GalBot");
+			if (fightRecognizer != null) {
+				player = GameObject.Find ("Player Gal");
+			} 
+			else 
+			{
+				player = GameObject.Find ("GalBot");
+			}
 		}
 
 		if (owner == 2) 
 		{
-			player = GameObject.Find ("GuyBot");
-			transform.eulerAngles = new Vector3 (0, 0, 180);  
+			if (fightRecognizer != null) {
+				player = GameObject.Find ("Player Guy");
+			} 
+			else 
+			{
+				player = GameObject.Find ("GuyBot");
+			}
+		transform.eulerAngles = new Vector3 (0, 0, 180);  
+
 		}
 	
 		SpriteRenderer[] sr = GetComponentsInChildren<SpriteRenderer> (); 

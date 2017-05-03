@@ -12,18 +12,32 @@ public abstract class Buildables : MonoBehaviour {
 
 	public void colorChange () 
 	{
-
-		if (owner == 1) 
+		GameObject fightRecognizer = GameObject.Find ("Player Guy");
+		if (fightRecognizer != null) 
 		{
-			GameObject player = GameObject.Find ("GalBot");
-			SpriteRenderer sr = player.GetComponent<SpriteRenderer> ();
-			GetComponent<SpriteRenderer> ().color = sr.color;
-		}
-		if (owner == 2) 
+			if (owner == 1) {
+				GameObject player = GameObject.Find ("Player Gal");
+				SpriteRenderer sr = player.GetComponent<SpriteRenderer> ();
+				GetComponent<SpriteRenderer> ().color = sr.color;
+			}
+			if (owner == 2) {
+				GameObject player = GameObject.Find ("Player Guy");
+				SpriteRenderer sr = player.GetComponent<SpriteRenderer> ();
+				GetComponent<SpriteRenderer> ().color = sr.color;
+			}
+		} 
+		else 
 		{
-			GameObject player = GameObject.Find ("GuyBot");
-			SpriteRenderer sr = player.GetComponent<SpriteRenderer> ();
-			GetComponent<SpriteRenderer> ().color = sr.color;
+			if (owner == 1) {
+				GameObject player = GameObject.Find ("GalBot");
+				SpriteRenderer sr = player.GetComponent<SpriteRenderer> ();
+				GetComponent<SpriteRenderer> ().color = sr.color;
+			}
+			if (owner == 2) {
+				GameObject player = GameObject.Find ("GuyBot");
+				SpriteRenderer sr = player.GetComponent<SpriteRenderer> ();
+				GetComponent<SpriteRenderer> ().color = sr.color;
+			}
 		}
 
 	}
