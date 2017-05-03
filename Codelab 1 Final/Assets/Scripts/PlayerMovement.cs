@@ -221,7 +221,7 @@ public class PlayerMovement : MonoBehaviour {
 				{
 					ScoreManager.playerGuyHealth = ScoreManager.playerGuyHealth - bbb.beamDamage;
 				}
-				Destroy (touched.gameObject);
+				bbb.finished = true;
 			}
 		}
 

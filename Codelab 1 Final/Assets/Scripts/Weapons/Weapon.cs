@@ -15,7 +15,7 @@ public class Weapon : MonoBehaviour {
 		string color,
 		int owner){ 
 
-		GameObject shot = Instantiate(Resources.Load("Prefabs/BladeBeam")) as GameObject;
+		GameObject shot = BeamPool.pullFromPool();
 		shot.transform.position = transform.position + modPos;
 		shot.GetComponent<Rigidbody2D> ().velocity = new Vector2 ((direction * Xspeed), direction * Yspeed);
 		shot.GetComponent<BladeBeamBehavior> ().beamLimit = survive;

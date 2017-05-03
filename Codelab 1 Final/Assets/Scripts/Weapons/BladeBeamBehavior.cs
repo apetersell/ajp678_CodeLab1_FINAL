@@ -8,8 +8,7 @@ public class BladeBeamBehavior : MonoBehaviour {
 	public float beamLimit; 
 	public int beamDamage;
 	public int owner;
-	GameObject bossMeter;  
-
+	public bool finished;
 
 	// Use this for initialization
 	void Start () {
@@ -22,7 +21,12 @@ public class BladeBeamBehavior : MonoBehaviour {
 
 		beamTimer++;
 		if (beamTimer >= beamLimit) {
-			Destroy (gameObject);
+			finished = true;
+		}
+
+		if (finished) 
+		{
+			BeamPool.addToPool (gameObject);
 		}
 		
 	}
@@ -31,9 +35,15 @@ public class BladeBeamBehavior : MonoBehaviour {
 	{
 		if (coll.gameObject.tag == "Floor")
 		{
-			Destroy (gameObject);
+			finished = true;
 		}
 
+	}
+
+	public void reset ()
+	{
+		finished = false;
+		beamTimer = 0;
 	}
 
 }

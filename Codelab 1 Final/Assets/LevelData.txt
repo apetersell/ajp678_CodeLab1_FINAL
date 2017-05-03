@@ -1,1 +1,1 @@
-[  ]
+[ {"xpos":"8.533593", "ypos":"-10.21923", "zpos":"0", "type":"Moving Platform", "owner":"2"}, {"xpos":"2.942881", "ypos":"-9.596606", "zpos":"0", "type":"Spread Shot", "owner":"2"}, {"xpos":"1.550411", "ypos":"-9.596606", "zpos":"0", "type":"Long Shot", "owner":"2"}, {"xpos":"-0.4712109", "ypos":"-9.596606", "zpos":"0", "type":"Big Shot", "owner":"2"} ]

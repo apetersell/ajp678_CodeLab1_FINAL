@@ -1,1 +1,1 @@
-[ {"xpos":"-4.85", "ypos":"-11.69", "zpos":"0", "playernum":"1", "posmarker":"true"}, {"xpos":"5.48", "ypos":"-11.69", "zpos":"0", "playernum":"2", "posmarker":"true"} ]
+[ {"xpos":"8.605675", "ypos":"-7.062117", "zpos":"0", "playernum":"2", "posmarker":"true"}, {"xpos":"-4.85", "ypos":"-11.95996", "zpos":"0", "playernum":"1", "posmarker":"true"} ]
